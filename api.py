@@ -11,9 +11,6 @@ personalData = [{'First Name' : 'Matti',
 
 @app.route("/printdata", methods=['GET'])
 def printData():
-    personalData.remove(3)
-    personalData.remove(4)
-    personalData.remove(5)
     return jsonify({'Personal Data' : personalData})
 
 if __name__ == '__main__':
