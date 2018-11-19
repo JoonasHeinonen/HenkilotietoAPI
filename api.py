@@ -1,4 +1,5 @@
-from flask import Flask, jsonify, request
+from flask import Flask, request
+from flask import jsonify
 app = Flask(__name__)
 
 personalData = [{'First Name' : 'Matti', 
@@ -8,7 +9,7 @@ personalData = [{'First Name' : 'Matti',
             'Municipality': 'Turku', 
             'Social Security Number' : '010100-333I'}]
 
-@app.route("/", methods=['GET'])
+@app.route("/printdata", methods=['GET'])
 def printData():
     return jsonify({'Personal Data' : personalData})
 
