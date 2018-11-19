@@ -11,13 +11,6 @@ personalData = [{'First Name' : 'Matti'},
 
 @app.route("/printdata", methods=['GET'])
 def printData():
-    deleteData(personalData)
-    return jsonify({'Personal Data' : personalData})
-
-@app.route('/printdata', methods=['DELETE'])
-def deleteData(dataName):
-    dataArray = [array for array in personalData if array['Social Security Number'] == dataName]
-    personalData.remove(dataArray[0])
     return jsonify({'Personal Data' : personalData})
 
 if __name__ == '__main__':
