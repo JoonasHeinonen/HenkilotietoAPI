@@ -2,7 +2,7 @@ from flask import Flask, request
 from flask import jsonify
 app = Flask(__name__)
 
-tasks = [
+books = [
     {
         'id': 1,
         'title': u'The Origins Of Freemasonry',
@@ -18,8 +18,8 @@ tasks = [
 ]
 
 @app.route("/printdata", methods=['GET'])
-def get_tasks():
-    return jsonify({'tasks': tasks})
+def get_books():
+    return jsonify({'books': books})
 
 if __name__ == '__main__':
     app.run(debug=True)
