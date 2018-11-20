@@ -18,7 +18,7 @@ books = [
     }
 ]
 
-@app.route("/printdata/<int:book_id>", methods=['GET'])
+@app.route("/todo/api/v1.0/tasks/<int:task_id>", methods=['GET'])
 def get_books(book_id):
     book = [book for book in books if book['id'] == book_id]
     if len(book) == 0:
