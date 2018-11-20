@@ -23,7 +23,7 @@ def get_books(book_id):
     book = [book for book in books if book['id'] == book_id]
     if len(book) == 0:
         abort(404)
-    return jsonify({'books': book[0]})
+    return jsonify({'book': book[0]})
 
 if __name__ == '__main__':
     app.run(debug=True)
