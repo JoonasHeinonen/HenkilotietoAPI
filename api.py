@@ -18,7 +18,7 @@ books = [
     }
 ]
 
-@app.route("/printdata", methods=['GET'])
+@app.route("/printdata/<int:book_id>", methods=['GET'])
 def get_books(book_id):
     book = [book for book in books if book['id'] == book_id]
     if len(book) == 0:
