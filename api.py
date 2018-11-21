@@ -3,20 +3,38 @@ from flask import request
 from flask import abort
 from flask import jsonify
 from flask import make_response
+import datetime
 app = Flask(__name__)
+
+
+# The following JSon is done according to instructions provided by CCMS standard.
+# It will include only the required fields of Common Core.
+# Link for the CCMS standard:
+# https://project-open-data.cio.gov/schema/
 
 books = [
     {
-        'id': 1,
         'title': u'The Origins Of Freemasonry',
         'description': 'Can the ancestry of freemasonry really be...',
-        'done': False
+        'keyword': 'Freemasonry',
+        'modified': datetime.datetime(2018, 11, 21),
+        'publisher': 'University Of Pennsylvania Press',
+        'contact': 'University Of Pennsylvania Press',
+        'mbox': 'ips@ingramcontent.com',
+        'id': 1,
+        'access': 'public'
+
     },
     {
+        'title': u'Kommunistinen Manifesti',
+        'description': 'Poliittisen ajattelun klassikko vuodelta 1848...',
+        'keyword': 'Communism',
+        'modified': datetime.datetime(2018, 11, 21),
+        'publisher': 'Kustannusosakeyhtiö Vastapaino',
+        'contact': 'Kustannusosakeyhtiö Vastapaino',
+        'mbox': 'vastapaino@vastapaino.fi',
         'id': 2,
-        'title': u'Communist Manifesto',
-        'description': 'Classic of political thinking from 1848 is...',
-        'done': False
+        'access': 'public'
     }
 ]
 
