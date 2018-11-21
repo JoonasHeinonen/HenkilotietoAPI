@@ -93,7 +93,7 @@ def update_book(book_id):
     book[0]['access'] = request.json.get('access', book[0]['access'])
     return jsonify({'book': book[0]})
 
-@app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['DELETE'])
+@app.route('/todo/api/v1.0/tasks/<int:book_id>', methods=['DELETE'])
 def delete_book(book_id):
     book = [book for book in books if book['id'] == book_id]
     if len(book) == 0:
