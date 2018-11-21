@@ -30,8 +30,8 @@ books = [
         'description': 'Poliittisen ajattelun klassikko vuodelta 1848...',
         'keyword': 'Communism',
         'modified': datetime.datetime(2018, 11, 21),
-        'publisher': 'Kustannusosakeyhtiö Vastapaino',
-        'contact': 'Kustannusosakeyhtiö Vastapaino',
+        'publisher': 'Kustannusosakeyhtio Vastapaino',
+        'contact': 'Kustannusosakeyhtio Vastapaino',
         'mbox': 'vastapaino@vastapaino.fi',
         'id': 2,
         'access': 'public'
