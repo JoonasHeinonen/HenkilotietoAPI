@@ -6,11 +6,11 @@ from flask import make_response
 import datetime
 app = Flask(__name__)
 
-
-# The following JSon is done according to instructions provided by CCMS standard.
-# It will include only the required fields of Common Core.
-# Link for the CCMS standard:
-# https://project-open-data.cio.gov/schema/
+#########################################################################
+# The following JSon is done according to instructions provided by CCMS #
+# standard. It will include only the required fields of Common Core.    #
+# Link for the CCMS standard: https://project-open-data.cio.gov/schema/ #
+#########################################################################
 
 books = [
     {
