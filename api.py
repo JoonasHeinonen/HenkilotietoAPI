@@ -3,6 +3,7 @@ from flask import request
 from flask import abort
 from flask import jsonify
 from flask import make_response
+from flask import url_for
 import datetime
 app = Flask(__name__)
 
@@ -38,12 +39,9 @@ books = [
     }
 ]
 
-@app.route("/todo/api/v1.0/tasks/<int:book_id>", methods=['GET'])
-def get_books(book_id):
-    book = [book for book in books if book['id'] == book_id]
-    if len(book) == 0:
-        abort(404)
-    return jsonify({'book': book[0]})
+@app.route('/todo/api/v1.0/tasks', methods=['GET'])
+def get_books():
+    return jsonify({'books': [make_public_book(book) for book in books]})
 
 @app.route('/todo/api/v1.0/tasks', methods=['POST'])
 def create_book():
@@ -100,6 +98,15 @@ def delete_book(book_id):
         abort(404)
     books.remove(book[0])
     return jsonify({'result': True})
+
+def make_public_book(book):
+    new_book = {}
+    for field in book:
+        if field == "id":
+            new_book['uri'] =url_for('get_book', book_id=book['id'], _external=True)
+        else:
+            new_book[field] = book[field]
+    return new_book
 
 @app.errorhandler(404)
 def not_found(error):
