@@ -39,6 +39,13 @@ books = [
     }
 ]
 
+@app.route("/todo/api/v1.0/tasks/<int:book_id>", methods=['GET'])
+def get_books(book_id):
+    book = [book for book in books if book['id'] == book_id]
+    if len(book) == 0:
+        abort(404)
+    return jsonify({'book': book[0]})
+
 @app.route('/todo/api/v1.0/tasks', methods=['POST'])
 def create_book():
     if not request.json or not 'title' in request.json:
@@ -99,14 +106,10 @@ def make_public_book(book):
     new_book = {}
     for field in book:
         if field == "id":
-            new_book['uri'] =url_for('get_books', book_id=book['id'], _external=True)
+            new_book['uri'] =url_for('get_book', book_id=book['id'], _external=True)
         else:
             new_book[field] = book[field]
     return new_book
-
-@app.route('/todo/api/v1.0/tasks', methods=['GET'])
-def get_books():
-    return jsonify({'books': [make_public_book(book) for book in books]})
 
 @app.errorhandler(404)
 def not_found(error):
