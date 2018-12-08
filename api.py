@@ -39,14 +39,18 @@ books = [
     }
 ]
 
-@app.route("/todo/api/v1.0/tasks/<int:book_id>", methods=['GET'])
+@app.route("/books/", methods=['GET'])
+def get_all_books():
+    return jsonify({'book': books})
+
+@app.route("/books/<int:book_id>", methods=['GET'])
 def get_books(book_id):
     book = [book for book in books if book['id'] == book_id]
     if len(book) == 0:
         abort(404)
     return jsonify({'book': book[0]})
 
-@app.route('/todo/api/v1.0/tasks', methods=['POST'])
+@app.route('/books', methods=['POST'])
 def create_book():
     if not request.json or not 'title' in request.json:
         abort(400)
@@ -64,7 +68,7 @@ def create_book():
     books.append(book)
     return jsonify({'book': book}), 201
 
-@app.route('/todo/api/v1.0/tasks/<int:book_id>', methods=['PUT'])
+@app.route('/books/<int:book_id>', methods=['PUT'])
 def update_book(book_id):
     book = [book for book in books if book['id'] == book_id]
     if len(book) == 0:
@@ -94,7 +98,7 @@ def update_book(book_id):
     book[0]['access'] = request.json.get('access', book[0]['access'])
     return jsonify({'book': book[0]})
 
-@app.route('/todo/api/v1.0/tasks/<int:book_id>', methods=['DELETE'])
+@app.route('/books/<int:book_id>', methods=['DELETE'])
 def delete_book(book_id):
     book = [book for book in books if book['id'] == book_id]
     if len(book) == 0:
