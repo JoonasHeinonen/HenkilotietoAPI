@@ -40,8 +40,9 @@ books = [
     }
 ]
 
+@app.route("/")
 @app.route("/books")
-def get_home_page():
+def home():
     return render_template('home.html', title='Home')
 
 @app.route("/books/all", methods=['GET'])
