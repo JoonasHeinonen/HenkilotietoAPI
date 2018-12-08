@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
     {% for book in books %}
-        <a href="/books/<int:book_id>">Check out this book!</a>
+        <h2><a href="#">{{ books.title }}</a></h2>
     {% endfor %}
 {% endblock content %}
