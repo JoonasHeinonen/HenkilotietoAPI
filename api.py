@@ -3,6 +3,7 @@ from flask import request
 from flask import abort
 from flask import jsonify
 from flask import make_response
+from flask import render_template
 from flask import url_for
 import datetime
 app = Flask(__name__)
@@ -39,7 +40,11 @@ books = [
     }
 ]
 
-@app.route("/books/", methods=['GET'])
+@app.route("/books")
+def get_home_page():
+    return render_template('home.html', title='Home')
+
+@app.route("/books/all", methods=['GET'])
 def get_all_books():
     return jsonify({'book': books})
 
