@@ -43,7 +43,7 @@ books = [
 @app.route("/")
 @app.route("/books")
 def home():
-    return render_template('home.html', title='Home')
+    return render_template('home.html', books=books, title='Home')
 
 @app.route("/books/all", methods=['GET'])
 def get_all_books():

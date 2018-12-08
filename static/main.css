@@ -1,3 +1,7 @@
+body {
+    background-color: #ccdfff;
+}
+
 .button {
     background-color: #4CAF50;
     border: none;
@@ -9,8 +13,4 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-}
-
-body {
-    background-color: red;
 }
