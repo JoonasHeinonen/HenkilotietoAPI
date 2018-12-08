@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>THE METADATA API</h1>
-    <p>This is a demonstrative API created by a student of Turku University Of Applied Sciences, Joonas Heinonen as a part of CoSIE-project that seeks co-creation in innovative services.</p>
+    {% for book in books %}
+        <button class="button"><a href="{{ url_for('get_books', book_id=book.id) }}">{{ book.title }}</a></button>
+    {% endfor %}
+    <button class="button"><a href="{{ url_for('get_all_books') }}">Show Every Book</a></button>
 {% endblock content %}

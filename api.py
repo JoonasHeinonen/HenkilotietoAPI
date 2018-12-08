@@ -45,6 +45,10 @@ books = [
 def home():
     return render_template('home.html', books=books, title='Home')
 
+@app.route("/about")
+def about():
+    return render_template('about.html', title='About')
+
 @app.route("/books/all", methods=['GET'])
 def get_all_books():
     return jsonify({'book': books})
