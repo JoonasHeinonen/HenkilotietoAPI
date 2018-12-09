@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
+    <h1>List of books: </h1>
     {% for book in books %}
         <button class="button"><a href="{{ url_for('get_books', book_id=book.id) }}">{{ book.title }}</a></button>
     {% endfor %}
