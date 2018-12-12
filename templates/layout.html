@@ -2,12 +2,30 @@
 <html>
     <head>
         <style>
+            body { 
+                background-color: black;
+                line-height: 1; 
+            }
+            article { 
+                display: block; 
+                background-color: white;
+                padding: 1em;
+                margin: 16px;
+                height: 100%;
+            }
+            .topnav {
+                width: 100%;
+                left: 0;
+                top: 0;
+                overflow: hidden;
+                background-color: #5ed1ff;
+            }
             ul {
+                
                 list-style-type: none;
                 margin: 0;
                 padding: 0;
                 overflow: hidden;
-                background-color: #5ed1ff;
             }
             li {
                 display: inline;
@@ -40,13 +58,17 @@
                 text-decoration: none;
             }
             .footer {
-                position: fixed;
+                position: absolute;
                 left: 0;
                 bottom: 0;
                 width: 100%;
                 background-color: #5ed1ff;
                 color: white;
                 text-align: center;
+            }
+            #fullpage { 
+                max-width: 63em; 
+                margin: auto; 
             }
         </style>
         <meta charset="utf-8">
@@ -57,13 +79,19 @@
         {% endif %}
     </head>
     <body>
-        <ul>
-            <li><a href="/books">Books</a></li>
-            <li><a href="/about">About</a></li>
-        </ul>
-        {% block content %}{% endblock %}
-        <div class="footer">
-            <p>© Joonas Heinonen 2018</p>
+        <div class="topnav">
+            <ul>
+                <li><a href="/books">Books</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </div>
+        <div id="fullpage">
+            <article>
+            {% block content %}{% endblock %}
+            </article>
+            <div class="footer">
+                <p>© Joonas Heinonen 2018</p>
+            </div>
         </div>
     </body>
 </html>
