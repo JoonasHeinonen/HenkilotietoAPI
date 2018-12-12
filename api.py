@@ -37,6 +37,17 @@ books = [
         'mbox': 'vastapaino@vastapaino.fi',
         'id': 2,
         'access': 'public'
+    },
+    {
+        'title': u'Stalin & Kumpp.',
+        'description': None,
+        'keyword': 'Stalinism',
+        'modified': datetime.datetime(2018, 12, 12),
+        'publisher': 'Kustannusosakeyhtio Otava',
+        'contact': None,
+        'mbox': None,
+        'id': 3,
+        'access': 'public'
     }
 ]
 
